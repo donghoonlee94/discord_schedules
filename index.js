@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
-const port = 3000;
+const PORT = 3000;
 const Discord = require('discord.js');
 const config = require('./config.json');
 const indexRouter = require('./routes/index');
@@ -60,10 +60,9 @@ client.on('messageCreate', (msg) => {
   }
 });
 
-// 봇과 서버를 연결해주는 부분
 client.login(config.BOT_TOKEN);
 
 app.use('/', indexRouter);
 
 app.get('/', (req, res) => res.send('Develog!'));
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(process.env.PORT || PORT, () => console.log(`Example app listening on port ${PORT}!`));
