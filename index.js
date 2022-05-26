@@ -64,5 +64,5 @@ client.login(config.BOT_TOKEN);
 
 app.use('/', indexRouter);
 
-app.get('/', (req, res) => res.send('Develog!'));
+app.get('/', (req, res) => res.send('Hoya discord!'));
 app.listen(process.env.PORT || PORT, () => console.log(`Example app listening on port ${PORT}!`));
