@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 const PORT = 3000;
@@ -9,13 +9,13 @@ const userModel = require('./schema/user');
 const user = require('./schema/user');
 const inputMsg = '!입력모드';
 
-mongoose
-  .connect(`mongodb+srv://hoya:${config.PW}@hoyadiscordschedule.pqeqbgv.mongodb.net/?retryWrites=true&w=majority`, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log('MongoDB connected...'))
-  .catch((error) => console.log(error));
+// mongoose
+//   .connect(`mongodb+srv://hoya:${config.PW}@hoyadiscordschedule.pqeqbgv.mongodb.net/?retryWrites=true&w=majority`, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   })
+//   .then(() => console.log('MongoDB connected...'))
+//   .catch((error) => console.log(error));
 
 const client = new Discord.Client({ intents: ['GUILDS', 'GUILD_MESSAGES'] });
 
