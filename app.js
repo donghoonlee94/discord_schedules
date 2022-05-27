@@ -27,14 +27,6 @@ client.on('ready', () => {
 });
 
 client.on('messageCreate', (msg) => {
-  user.updateOne({ name: '테스트' }, { schedule: '변경' }).then((result) => {
-    console.log('변경 리절트', result);
-  });
-
-  user.findOne({ name: '테스트' }).then((result) => {
-    console.log('result', result);
-  });
-
   // msg.channel.send(`findTest, ${findTest}`);
 
   if (msg.content === '!ping') {
@@ -49,7 +41,7 @@ client.on('messageCreate', (msg) => {
 
   if (msg.content === '!저장') {
     let user = new userModel();
-    user.name = '테스트';
+    user.name = '실제 데이터 테스트';
     user.schedule = 'Test Schedule';
 
     user
