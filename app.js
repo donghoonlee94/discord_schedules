@@ -6,8 +6,12 @@ const PORT = 3000;
 const Discord = require('discord.js');
 const indexRouter = require('./routes/index');
 const userModel = require('./schema/user');
-const user = require('./schema/user');
 const inputMsg = '!입력모드';
+const http = require('http');
+
+setInterval(function () {
+  http.get('https://discordschedules.herokuapp.com/');
+}, 1800000);
 
 mongoose
   .connect(
