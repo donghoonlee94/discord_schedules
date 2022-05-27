@@ -33,8 +33,8 @@ client.on('ready', () => {
 client.on('messageCreate', (msg) => {
   // msg.channel.send(`findTest, ${findTest}`);
 
-  if (msg.content === '!ping') {
-    msg.channel.send('pong');
+  if (msg.content === '!호야사진줘') {
+    msg.channel.send('', { files: ['./images/hoya1.jpg'] });
   }
 
   if (msg.content.includes(inputMsg) || msg.content.indexOf(inputMsg) === 0) {
