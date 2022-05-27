@@ -31,32 +31,36 @@ client.on('ready', () => {
 });
 
 client.on('messageCreate', (msg) => {
-  // msg.channel.send(`findTest, ${findTest}`);
-
   if (msg.content === '!호야사진줘') {
-    msg.channel.send('', { files: ['./images/hoya1.jpg'] });
+    const randomNumber = Math.floor(Math.random() * 22);
+    const file = new Discord.MessageAttachment(`./images/hoya_${randomNumber}.jpg`);
+    const embed = new Discord.MessageEmbed().setTitle('image').setImage('attachment://discordjs.png');
+
+    msg.channel.send({ embeds: [embed], files: [file] });
+
+    return;
   }
 
-  if (msg.content.includes(inputMsg) || msg.content.indexOf(inputMsg) === 0) {
-    const bodyMsg = msg.content.substring(5);
+  // if (msg.content.includes(inputMsg) || msg.content.indexOf(inputMsg) === 0) {
+  //   const bodyMsg = msg.content.substring(5);
 
-    msg.channel.send('저장이 완료되었습니다.');
-  }
+  //   msg.channel.send('저장이 완료되었습니다.');
+  // }
 
-  if (msg.content === '!저장') {
-    let user = new userModel();
-    user.name = '실제 데이터 테스트';
-    user.schedule = 'Test Schedule';
+  // if (msg.content === '!저장') {
+  //   let user = new userModel();
+  //   user.name = '실제 데이터 테스트';
+  //   user.schedule = 'Test Schedule';
 
-    user
-      .save()
-      .then((result) => {
-        console.log(result);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
+  //   user
+  //     .save()
+  //     .then((result) => {
+  //       console.log(result);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }
 });
 
 client.login(process.env.BOT_TOKEN);
