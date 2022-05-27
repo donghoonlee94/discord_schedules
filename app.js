@@ -1,21 +1,24 @@
-// const mongoose = require('mongoose');
+require('dotenv').config();
+const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 const PORT = 3000;
 const Discord = require('discord.js');
-const config = require('./config.json');
 const indexRouter = require('./routes/index');
 const userModel = require('./schema/user');
 const user = require('./schema/user');
 const inputMsg = '!입력모드';
 
-// mongoose
-//   .connect(`mongodb+srv://hoya:${config.PW}@hoyadiscordschedule.pqeqbgv.mongodb.net/?retryWrites=true&w=majority`, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//   })
-//   .then(() => console.log('MongoDB connected...'))
-//   .catch((error) => console.log(error));
+mongoose
+  .connect(
+    `mongodb+srv://hoya:${process.env.PW}@hoyadiscordschedule.pqeqbgv.mongodb.net/?retryWrites=true&w=majority`,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
+  .then(() => console.log('MongoDB connected...'))
+  .catch((error) => console.log(error));
 
 const client = new Discord.Client({ intents: ['GUILDS', 'GUILD_MESSAGES'] });
 
@@ -60,7 +63,7 @@ client.on('messageCreate', (msg) => {
   }
 });
 
-client.login(config.BOT_TOKEN);
+client.login(process.env.BOT_TOKEN);
 
 app.use('/', indexRouter);
 
