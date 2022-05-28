@@ -41,6 +41,16 @@ client.on('messageCreate', (msg) => {
     return;
   }
 
+  if (msg.content === '!스커님숙코에요?') {
+    const file1 = new Discord.MessageAttachment(`./images/스커_1.png`);
+    const file2 = new Discord.MessageAttachment(`./images/스커_2.png`);
+    const embed = new Discord.MessageEmbed().setTitle('image').setImage('attachment://discordjs.png');
+
+    msg.channel.send({ embeds: [embed], files: [file1.file2] });
+
+    return;
+  }
+
   // if (msg.content.includes(inputMsg) || msg.content.indexOf(inputMsg) === 0) {
   //   const bodyMsg = msg.content.substring(5);
 
