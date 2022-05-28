@@ -12,7 +12,10 @@ const http = require('http');
 const updateScheduleMsg = '!스케줄수정';
 const getAllScheduleList = '!모든스케줄조회';
 const getScheduleMsg = '!스케줄조회';
+const getUserListMsg = '!등록된멤버조회';
 const scheduleBotGuideMsg = '!호야봇가이드';
+
+const userList = ['동훈', '예경', '진욱', '창섭', '유저', '유진', '듀니', '코즈'];
 
 const updateScheduleUserMsg = {
   '!스케줄수정:동훈': '동훈',
@@ -87,9 +90,13 @@ client.on('messageCreate', (msg) => {
 
   if (msg.content === scheduleBotGuideMsg) {
     msg.channel.send(
-      '전체 스케줄 조회: !모든스케줄조회\r개인 스케줄 조회: !스케줄조회:이름\r스케줄 수정: !스케줄수정:이름\r랜덤 호야 사진 얻기: !호야사진줘\r스커 숙코 드립: !스커님숙코에요?'
+      '전체 스케줄 조회: !모든스케줄조회\r개인 스케줄 조회: !스케줄조회:이름\r스케줄 수정: !스케줄수정:이름\r랜덤 호야 사진 얻기: !호야사진줘\r스커 숙코 드립: !스커님숙코에요?\r등록된 멤버 목록 조회: !등록된멤버조회'
     );
     return;
+  }
+
+  if (msg.content === getUserListMsg) {
+    msg.channel.send(`등록된 멤버는 ${userList.join(',')}(으)로 총 ${userList.length}명 입니다`);
   }
 
   if (msg.content.includes(getAllScheduleList)) {
