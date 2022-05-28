@@ -15,13 +15,13 @@ const getScheduleMsg = '!스케줄조회';
 const getUserListMsg = '!등록된멤버조회';
 const scheduleBotGuideMsg = '!호야봇가이드';
 
-const userList = ['동훈', '예경', '진욱', '창섭', '유저', '유진', '듀니', '코즈'];
+const userList = ['동훈', '예경', '진욱', '창준', '유저', '유진', '듀니', '코즈'];
 
 const updateScheduleUserMsg = {
   '!스케줄수정:동훈': '동훈',
   '!스케줄수정:예경': '예경',
   '!스케줄수정:진욱': '진욱',
-  '!스케줄수정:창섭': '창섭',
+  '!스케줄수정:창준': '창준',
   '!스케줄수정:유저': '유저',
   '!스케줄수정:유진': '유진',
   '!스케줄수정:듀니': '듀니',
@@ -32,7 +32,7 @@ const getScheduleUserMsg = {
   '!스케줄조회:동훈': '동훈',
   '!스케줄조회:예경': '예경',
   '!스케줄조회:진욱': '진욱',
-  '!스케줄조회:창섭': '창섭',
+  '!스케줄조회:창준': '창준',
   '!스케줄조회:유저': '유저',
   '!스케줄조회:유진': '유진',
   '!스케줄조회:듀니': '듀니',
@@ -103,7 +103,7 @@ client.on('messageCreate', (msg) => {
   if (msg.content.includes(getAllScheduleList)) {
     userModel.find({}, { _id: 0, __v: 0 }).then((result) => {
       result.forEach((user) => {
-        msg.channel.send(`User: ${user.name}, Schedule: ${user.schedule}, UpdateAt: ${user.updateAt}`);
+        msg.channel.send(`User: ${user.name}, Schedule: ${user.schedule}, UpdateAt: ${user.updateAt || ''}`);
       });
     });
     // console.log('allSchedule', allSchedule);
