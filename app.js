@@ -97,6 +97,7 @@ client.on('messageCreate', (msg) => {
 
   if (msg.content === getUserListMsg) {
     msg.channel.send(`등록된 멤버는 ${userList.join(',')}(으)로 총 ${userList.length}명 입니다`);
+    return;
   }
 
   if (msg.content.includes(getAllScheduleList)) {
