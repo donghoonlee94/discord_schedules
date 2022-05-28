@@ -46,7 +46,7 @@ client.on('messageCreate', (msg) => {
     const file2 = new Discord.MessageAttachment(`./images/스커_2.png`);
     const embed = new Discord.MessageEmbed().setTitle('image').setImage('attachment://discordjs.png');
 
-    msg.channel.send({ embeds: [embed], files: [file1.file2] });
+    msg.channel.send({ embeds: [embed], files: [file1, file2] });
 
     return;
   }
