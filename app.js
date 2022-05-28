@@ -103,7 +103,7 @@ client.on('messageCreate', (msg) => {
   if (msg.content.includes(getAllScheduleList)) {
     userModel.find({}, { _id: 0, __v: 0 }).then((result) => {
       result.forEach((user) => {
-        msg.channel.send(`User: ${user.name}, Schedule: ${user.schedule}`);
+        msg.channel.send(`User: ${user.name}, Schedule: ${user.schedule}, UpdateAt: ${user.updateAt}`);
       });
     });
     // console.log('allSchedule', allSchedule);
