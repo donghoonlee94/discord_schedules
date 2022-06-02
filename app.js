@@ -41,7 +41,7 @@ const getScheduleUserMsg = {
 
 setInterval(function () {
   http.get('https://discordschedules.herokuapp.com/');
-}, 1800000);
+}, 600000);
 
 mongoose
   .connect(
